@@ -18,4 +18,3 @@ release:
 	git checkout develop;
 	git tag $(NEXT_VERSION)
 	git push --tags
-
