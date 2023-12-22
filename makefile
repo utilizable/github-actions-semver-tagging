@@ -15,6 +15,6 @@ next-version:
 	@echo $(NEXT_VERSION)
 
 release:
-	git checkout master;
+	git checkout develop;
 	git tag $(NEXT_VERSION)
 	git push --tags
