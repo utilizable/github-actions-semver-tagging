@@ -1,4 +1,4 @@
-RELEASE_TYPE ?= patch
+RELEASE_TYPE ?= minor 
 
 CURRENT_VERSION := $(shell git ls-remote --tags | awk '{ print $$2}'| sort -nr | head -n1|sed 's/refs\/tags\///g')
 
@@ -18,3 +18,4 @@ release:
 	git checkout develop;
 	git tag $(NEXT_VERSION)
 	git push --tags
+

@@ -1,0 +1,44 @@
+name: 'semver'
+
+on:
+  push:
+    branches:
+      - develop 
+
+jobs:
+  semver:
+    runs-on: alpine/semver 
+
+    defaults:
+      run:
+        shell: sh 
+
+    steps:
+        
+    - name: Checkout
+      uses: actions/checkout@v3
+        
+    - name: Set up dependencies 
+      run: |
+        sudo apk add git 
+        
+    - name: patch
+      run: | 
+        
+        export RELEASE_TYPE="patch"
+        export CURRENT_VERSION=$(git describe --tags --abbrev=0)
+
+    - name: minor 
+      if: manual()
+      run: | 
+        
+        export RELEASE_TYPE="minor"
+        export CURRENT_VERSION=$(git describe --tags --abbrev=0)
+
+    - name: major 
+      if: manual()
+      run: | 
+
+        export RELEASE_TYPE="major"
+        export CURRENT_VERSION=$(git describe --tags --abbrev=0)
+
