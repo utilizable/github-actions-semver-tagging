@@ -5,6 +5,12 @@ on:
     branches:
       - develop 
 
+workflow_dispatch:
+  inputs:
+    release_type:
+      description: 'Semver release type (major / minor / patch)'     
+      required: true
+
 jobs:
   semver:
     runs-on: alpine/semver 
@@ -22,23 +28,8 @@ jobs:
       run: |
         sudo apk add git 
         
-    - name: patch
+    - name: semver 
       run: | 
         
-        export RELEASE_TYPE="patch"
-        export CURRENT_VERSION=$(git describe --tags --abbrev=0)
-
-    - name: minor 
-      if: manual()
-      run: | 
-        
-        export RELEASE_TYPE="minor"
-        export CURRENT_VERSION=$(git describe --tags --abbrev=0)
-
-    - name: major 
-      if: manual()
-      run: | 
-
-        export RELEASE_TYPE="major"
         export CURRENT_VERSION=$(git describe --tags --abbrev=0)
 
