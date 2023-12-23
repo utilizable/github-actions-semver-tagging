@@ -27,7 +27,7 @@ jobs:
           
       - name: Bump version
         run: |
-          CURRENT_VERSION=$(git ls-remote --tags --sort="v:refname" | tail -n1 | sed 's/.*\///; s/\^{}//');
+          CURRENT_VERSION=$(git ls-remote --tags --sort="v:refname" | tail -n1 | sed 's/.*\///; s/\^{}//' | echo "0.0.0" );
           NEXT_VERSION=$(docker run alpine/semver semver -c -i minor ${CURRENT_VERSION});
           
           echo "${CURRENT_VERSION}";
