@@ -18,3 +18,6 @@ REPOSITORY STRUCTURE
 │       └── major.yml
 └── README.md
 
+--------------------------------------
+REF:
+  - alpine/semver: https://github.com/alpine-docker/semver
