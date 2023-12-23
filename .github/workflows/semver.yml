@@ -5,28 +5,26 @@ on:
     inputs:
       release_type:
         description: 'Semver release type (major / minor / patch)'     
-        required: true
+        #required: true
 
 jobs:
   semver:
     runs-on: ubuntu-latest
-     
+    
+
     steps:
+    
     - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-        
-    - name: Build Alpine Docker image
+      uses: actions/checkout@v3    
+      
+    - name: set-up
       run: |
-        docker buildx create --use
-        docker buildx inspect --bootstrap
-        docker buildx build --file ./build/Dockerfile --tag semver .
+        sudo apt-get update
+        sudo apt-get install -y git
         
-    - name: Run code on Alpine
-      run: |        
-        docker run semver
+    - name: semver
+      run: |
+        CURRENT_VERSION="$(git ls-remote --tags | awk '{ print $$2}'| sort -nr | head -n1|sed 's/refs\/tags\///g')";
+        echo "${CURRENT_VERSION}"
+      
+        
