@@ -1,4 +1,4 @@
-################################################################ 
+--------------------------------------
 ACTIONS-SEMVER-TAGGING 
 
 Here is a simple example of using GitHub Actions to implement semantic versioning (semver). There are three files, each describing a slightly different workflow:
@@ -7,7 +7,7 @@ Here is a simple example of using GitHub Actions to implement semantic versionin
   - minor.yml: Triggered always.
   - major.yml: Triggered manually.
 
-################################################################ 
+--------------------------------------
 REPOSITORY STRUCTURE
 .
 ├── .github
