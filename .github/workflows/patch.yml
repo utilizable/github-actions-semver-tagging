@@ -5,12 +5,14 @@ on:
     branches:
       - 'fix/\d+\.\d+\.x'
 
-permissions:
-  contents: write
-  
 jobs:
   report:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # To push a branch 
+      pull-requests: write  # To create a PR from that branch
+      
     steps:
       - uses: actions/checkout@v3
       
@@ -23,8 +25,5 @@ jobs:
         run: |
           CURRENT_VERSION="${GITHUB_REF//*\/}";
           NEXT_VERSION=$(docker run alpine/semver semver -c -i minor ${CURRENT_VERSION});
-          
-      - name: Commit report
-        run: |
           git tag ${NEXT_VERSION};
-          git push --tags
+          git push --tags        
