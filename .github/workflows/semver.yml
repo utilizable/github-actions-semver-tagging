@@ -26,6 +26,7 @@ jobs:
 
       - name: Test
         run: |
+          echo "${CURRENT_VERSION}"
           echo "${NEXT_VERSION}"
           
       - name: Commit report
