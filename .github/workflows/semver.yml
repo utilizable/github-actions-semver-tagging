@@ -16,9 +16,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3    
-      with:
-        token: ${{ secrets.PAT }}      
+      uses: actions/checkout@v3        
         
     - name: Set up tools
       run: |
@@ -34,9 +32,9 @@ jobs:
 
     - name: Tag and push
       run: |
-        echo "${GITHUB_TOKEN}"
-        git config --global user.name "${GITHUB_ACTOR}"
-        git config --global user.email "igor.sadza@gmail.com"
+        git config --global user.name 'Your Name'
+        git config --global user.email 'your-username@users.noreply.github.com'
+        git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
         git checkout "${GITHUB_REF_NAME}";
         git tag ${NEXT_VERSION};
         git push --tags
