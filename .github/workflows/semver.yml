@@ -33,7 +33,5 @@ jobs:
           echo "${CURRENT_VERSION}"
           echo "${NEXT_VERSION}"
           
-      - name: Commit report
-        run: |
           git tag ${NEXT_VERSION};
-          git push --tags origin 
+          git push --tags origin           
