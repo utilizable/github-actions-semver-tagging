@@ -9,7 +9,7 @@ on:
 
 jobs:
   semver:
-    runs-on: node:lts-alpine
+    runs-on: node:current-alpine
 
     defaults:
       run:
