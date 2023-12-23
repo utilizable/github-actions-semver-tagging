@@ -1,15 +1,11 @@
 name: 'semver'
 
 on:
-  push:
-    branches:
-      - develop 
-
-workflow_dispatch:
-  inputs:
-    release_type:
-      description: 'Semver release type (major / minor / patch)'     
-      required: true
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Semver release type (major / minor / patch)'     
+        required: true
 
 jobs:
   semver:
