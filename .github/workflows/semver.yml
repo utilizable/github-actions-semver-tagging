@@ -7,13 +7,15 @@ on:
         description: 'Semver release type (major / minor / patch)'     
         #required: true
 
+permissions:
+  contents: read
+
 jobs:
   semver:
     runs-on: ubuntu-latest
     env:
-      GIT_API_TOKEN: ${{secrets.GIT_API_TOKEN}}
-      GIT_API_USER: ${{secrets.GIT_API_USER}}    
-      
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3    
@@ -23,11 +25,6 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git
         
-    - name: Display environment variables
-      run: |
-        echo "GIT_API_TOKEN=${GIT_API_TOKEN}"
-        echo "GIT_API_USER=${GIT_API_USER}"      
-      
     - name: Bump version
       run: |
         CURRENT_VERSION=$(git ls-remote --tags --sort="v:refname" | tail -n1 | sed 's/.*\///; s/\^{}//');
@@ -37,7 +34,7 @@ jobs:
 
     - name: Tag and push
       run: |
-        GITHUB_ENDPOINT="https://${GIT_API_USER}:${GIT_API_TOKEN}@${GITHUB_SERVER_URL//*\/}/${GITHUB_REPOSITORY}.git";
+        GITHUB_ENDPOINT="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL//*\/}/${GITHUB_REPOSITORY}.git";
         echo "Github endpoint: ${GITHUB_ENDPOINT}";
         git checkout "${GITHUB_REF_NAME}";
         git tag ${NEXT_VERSION};
