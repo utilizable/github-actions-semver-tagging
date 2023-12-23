@@ -5,10 +5,6 @@ on:
     branches:
       - develop
 
-permissions:
-  contents: read
-  pages: write
-  
 jobs:
   report:
     runs-on: ubuntu-latest
@@ -17,6 +13,10 @@ jobs:
       run:
         shell: bash
         
+    permissions:
+      contents: write  # To push a branch 
+      pull-requests: write  # To create a PR from that branch
+      
     steps:
       - uses: actions/checkout@v3
       
