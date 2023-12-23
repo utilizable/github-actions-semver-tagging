@@ -26,5 +26,7 @@ jobs:
       run: |
         CURRENT_VERSION="$(git ls-remote --tags | awk '{ print $$2}'| sort -nr | head -n1|sed 's/refs\/tags\///g')";
         echo "${CURRENT_VERSION}"
-      
+        NEXT_VERSION="$(docker run --rm alpine/semver semver -c -i patch ${CURRENT_VERSION})"
+        echo "${NEXT_VERSION}"
+
         
