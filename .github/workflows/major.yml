@@ -6,6 +6,8 @@ permissions:
 
 on:
   workflow_dispatch:
+    branches:
+      - develop
 
 jobs:
   report:
