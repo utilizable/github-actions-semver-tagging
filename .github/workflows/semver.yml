@@ -9,7 +9,7 @@ on:
 
 jobs:
   semver:
-    runs-on: alpine/semver 
+    runs-on: node:lts-alpine
 
     defaults:
       run:
@@ -22,7 +22,8 @@ jobs:
         
     - name: Set up dependencies 
       run: |
-        sudo apk add git 
+        npm install -g semver
+        apk add --no-cache git
         
     - name: semver 
       run: | 
