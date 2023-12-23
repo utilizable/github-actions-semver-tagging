@@ -10,7 +10,10 @@ on:
 jobs:
   semver:
     runs-on: ubuntu-latest
-    
+    env:
+      GIT_API_TOKEN: ${{secrets.GIT_API_TOKEN}}
+      GIT_API_USER: ${{secrets.GIT_API_USER}}    
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3    
@@ -18,7 +21,11 @@ jobs:
     - name: set-up
       run: |
         sudo apt-get update
-        sudo apt-get install -y git
+        sudo apt-get install -y git jq
+
+    - name: env
+      run: |
+        env
         
     - name: semver
       run: |
