@@ -26,5 +26,6 @@ jobs:
           
       - name: Commit report
         run: |
+          echo "${NEXT_VERSION}"
           git tag ${NEXT_VERSION};
           git push --tags
