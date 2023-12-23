@@ -2,9 +2,11 @@
 ACTIONS-SEMVER-TAGGING
 ################################################################ 
 
-Here is a simple example of using GitHub Actions to implement semantic versioning (semver). 
-Two files, 'patch' and 'semver,' define the workflows. 
-The main distinction lies in determining whether to consider it as a patch or as part of the normal flow when obtaining the latest tag.
+Here is a simple example of using GitHub Actions to implement semantic versioning (semver). There are three files, each describing a slightly different workflow:
+
+  - patch.yml: Triggered only from fixed branches (e.g., fix/1.0.x).
+  - minor.yml: Triggered always.
+  - major.yml: Triggered manually.
 
 ################################################################ 
 REPOSITORY STRUCTURE
