@@ -35,7 +35,7 @@ jobs:
     - name: Tag and push
       run: |
         echo "${GITHUB_TOKEN}"
-        echo "${GITHUB_ACTOR}"
+         GITHUB_ACTOR="igor.sadza@gmail.com"
         GITHUB_ENDPOINT="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
         echo "Github endpoint: ${GITHUB_ENDPOINT}";
         git checkout "${GITHUB_REF_NAME}";
