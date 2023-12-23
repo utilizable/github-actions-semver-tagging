@@ -24,6 +24,6 @@ jobs:
       - name: Bump version
         run: |
           CURRENT_VERSION="${GITHUB_REF//*\/}";
-          NEXT_VERSION=$(docker run alpine/semver semver -c -i minor ${CURRENT_VERSION});
+          NEXT_VERSION=$(docker run alpine/semver semver -c -i patch ${CURRENT_VERSION});
           git tag ${NEXT_VERSION};
           git push --tags        
