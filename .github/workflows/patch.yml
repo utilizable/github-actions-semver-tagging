@@ -1,0 +1,30 @@
+name: patch
+
+on:
+  push:
+    branches:
+      - 'fix/\d+\.\d+\.x'
+
+permissions:
+  contents: write
+  
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git
+          
+      - name: Bump version
+        run: |
+          CURRENT_VERSION="${GITHUB_REF//*\/}";
+          NEXT_VERSION=$(docker run alpine/semver semver -c -i minor ${CURRENT_VERSION});
+          
+      - name: Commit report
+        run: |
+          git tag ${NEXT_VERSION};
+          git push --tags
