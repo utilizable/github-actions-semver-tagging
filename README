@@ -16,7 +16,7 @@ REPOSITORY STRUCTURE
 │       ├── patch.yml
 |       ├── minor.yml
 │       └── major.yml
-└── README.md
+└── README
 
 --------------------------------------
 REF:
