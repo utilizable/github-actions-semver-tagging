@@ -34,7 +34,7 @@ jobs:
 
     - name: Tag and push
       run: |
-        GITHUB_ENDPOINT="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@${GITHUB_SERVER_URL//*\/}/${GITHUB_REPOSITORY}.git";
+        GITHUB_ENDPOINT="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
         echo "Github endpoint: ${GITHUB_ENDPOINT}";
         git checkout "${GITHUB_REF_NAME}";
         git tag ${NEXT_VERSION};
