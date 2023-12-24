@@ -1,5 +1,5 @@
 --------------------------------------
-GITHUB-ACTIONS-SEMVER-TAGGING 
+TEMPLATE-GITHUB-ACTIONS-SEMVER-TAGGING 
 
 Here is a simple example of using GitHub Actions to implement semantic versioning (semver). 
 There are three files, each describing a slightly different workflow:
