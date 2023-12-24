@@ -1,6 +1,8 @@
---------------------------------------
 TEMPLATE-GITHUB-ACTIONS-SEMVER-TAGGING 
+######################################
 
+DESCRIPTION:
+--------------------------------------
 Here is a simple example of using GitHub Actions to implement semantic versioning (semver). 
 There are three files, each describing a slightly different workflow:
 
@@ -8,16 +10,16 @@ There are three files, each describing a slightly different workflow:
   - minor.yml: Triggered always.
   - major.yml: Triggered manually.
 
+REPOSITORY STRUCTURE:
 --------------------------------------
-REPOSITORY STRUCTURE
 .
 ├── .github
-│   └── workflows
-│       ├── patch.yml
+│   └── workflows
+│       ├── patch.yml
 |       ├── minor.yml
-│       └── major.yml
+│       └── major.yml
 └── README
 
+REFERENCES:
 --------------------------------------
-REF:
   - alpine/semver: https://github.com/alpine-docker/semver
