@@ -1,4 +1,4 @@
-Github Actions Semver Tagging
+Github Actions - Semver Tagging
 ============
 This repository serves as a semver template for all pojects.
 
