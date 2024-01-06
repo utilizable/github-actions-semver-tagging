@@ -1,21 +1,11 @@
 name: patch
-
-permissions:
-  contents: write
-  pull-requests: write
   
 on:
-  push:
-#    branches:
-#      - 'fix/\d+\.\d+\.x'
   workflow_call:
   
 jobs:
   patch:
     runs-on: ubuntu-latest
-
-    # Restriction to the fix branch.
-    if: ${{ startsWith(github.ref, 'refs/heads/fix/') && endsWith(github.ref, '.x') }}
     
     defaults:
       run:
