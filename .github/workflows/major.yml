@@ -6,8 +6,8 @@ permissions:
 
 on:
   workflow_dispatch:
-    branches:
-      - develop
+#    branches:
+#      - develop
   workflow_call:
   
 jobs:
