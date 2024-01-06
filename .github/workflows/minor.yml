@@ -1,13 +1,7 @@
 name: minor
 
-permissions:
-  contents: write
-  pull-requests: write
-  
 on:
-  push:
-    branches:
-      - develop
+  workflow_call:
 
 jobs:
   minor:
