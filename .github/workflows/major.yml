@@ -11,7 +11,7 @@ on:
   workflow_call:
   
 jobs:
-  report:
+  semver-major:
     runs-on: ubuntu-latest
     
     defaults:
