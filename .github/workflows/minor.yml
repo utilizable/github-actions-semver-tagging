@@ -11,10 +11,9 @@ on:
   workflow_call:
     inputs:
       semver_restriction_branch_skip:
-        description: 'Must be true or false. Default is true'
-        required: false
-        type: boolean
-        default: true
+        type: string
+        description: ''
+        required: true
         
 jobs:
   semver-minor:
