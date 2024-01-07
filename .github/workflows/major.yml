@@ -11,6 +11,9 @@ jobs:
       run:
         shell: bash
       
+    outputs:
+      id: TAG 
+
     steps:
       - uses: actions/checkout@v3
         
@@ -23,5 +26,3 @@ jobs:
           git push --tags origin;
           echo "::set-output name=TAG::$NEXT_VERSION"
 
-        outputs:
-        id: TAG 
