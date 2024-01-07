@@ -30,4 +30,4 @@ jobs:
           
           git tag ${NEXT_VERSION};
           git push --tags origin;
-          echo "::set-output name=tag::$NEXT_VERSION"
+          echo "{tag}=${NEXT_VERSION}" >> $GITHUB_OUTPUT
