@@ -2,6 +2,11 @@ name: minor
 
 on:
   workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      tag:
+        description: "The first output string"
+        value: ${{ jobs.minor.outputs.tag }}
 
 jobs:
   minor:
@@ -12,7 +17,7 @@ jobs:
         shell: bash
       
     outputs:
-      id: TAG 
+      id: tag 
 
     steps:
       - uses: actions/checkout@v3
@@ -25,4 +30,4 @@ jobs:
           
           git tag ${NEXT_VERSION};
           git push --tags origin;
-          echo "::set-output name=TAG::$NEXT_VERSION"
+          echo "::set-output name=tag::$NEXT_VERSION"

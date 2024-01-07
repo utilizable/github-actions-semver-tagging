@@ -8,6 +8,14 @@ permissions:
 on:
   # Allow to re-use this jobs;
   workflow_call:
+
+    # Map the workflow outputs to job outputs
+    outputs:
+      tag:
+        description: "The first output string"
+        value: ${{ jobs.minor.outputs.tag }}
+
+
   # Trigger minor update;
   # Trigger patch update;
   push:
